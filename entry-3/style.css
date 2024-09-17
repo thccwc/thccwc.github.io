@@ -1,4 +1,17 @@
-.bg {
-    background-image: url("IMG_4658.JPG");
-    background-attachment: fixed;
-  }
+
+p { 
+    text-align: center; 
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    text-shadow: 2px 4px 10px white;
+}
+
+.img1 { 
+    position: relative;
+    float:right;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 120px;
+}
