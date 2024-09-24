@@ -1,32 +1,37 @@
 
- 
+
+
+
 p { 
-    text-align: center; 
+    display:flex;
+    justify-content: center;
     color: white;
     font-family: 'Times New Roman', Times, serif;
-    font-size: medium;
+    font-size: 2em;
     text-shadow: 2px 4px 10px white;
     position: absolute;
+    bottom: 0;
+    left: 50px;
 }
 
-#star-six {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid white;
-    position: relative;
-  }
-  #star-six:after {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 100px solid white;
+.form1 {
+    display: inline-block;
     position: absolute;
-    content: "";
-    top: 100px;
-    left: 900px;
-  }
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20 px;
+    text-shadow: 2px 4px 10px white;
+    top: 30px;
+    left: 200px;
+    overflow: hidden;
+}
+
+.form2 {
+    bottom:100 px;
+    left: 500 px;
+}
+
+
+
 
 
