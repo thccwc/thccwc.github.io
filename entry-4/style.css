@@ -1,0 +1,108 @@
+.paragraph1{
+    width: 400px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.paragraph1 p{
+    color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+    transition:300ms ease;
+    font-size: 1.5em;
+}
+.paragraph1:hover p{
+    color: white;
+    text-shadow: 2px 4px 10px white;
+}
+
+.paragraph2{
+    width: 400px;
+    position: absolute;
+    bottom: 200px;
+    left: 320px;
+}
+.paragraph2 p{
+    color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+    transition:300ms ease;
+    font-size: 1.5em;
+}
+.paragraph2:hover p{
+    color: white;
+    text-shadow: 2px 4px 10px white;
+}
+
+.paragraph3{
+    width: 400px;
+    position: absolute;
+    bottom: 400px;
+    left: 900px;
+}
+.paragraph3 p{
+    color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+    transition:300ms ease;
+    font-size: 1.5em;
+}
+.paragraph3:hover p{
+    color: white;
+    text-shadow: 2px 4px 10px white;
+}
+.form1 {
+    display: inline-block;
+    position: absolute;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px; 
+    text-shadow: 2px 4px 10px white;
+    top: 30px; 
+    left: 200px;
+    overflow: hidden;
+}
+
+.form2 {
+    font-size: 20px; 
+}
+.img1 {
+    opacity: 0;
+    transition: 300ms ease;
+}
+
+.img1:hover {
+    opacity: 1; /* Changed from 100 to 1 */
+}
+
+.img2 {
+    opacity: 0;
+    transition: 300ms ease;
+}
+
+.img2:hover {
+    opacity: 1; 
+}
+
+.img3 {
+    opacity: 0;
+    transition: 300ms ease;
+}
+
+.img3:hover {
+    opacity: 1; 
+}
+
+.img4 {
+    opacity: 0;
+    transition: 300ms ease;
+}
+
+.img4:hover {
+    opacity: 1; 
+}
+
+.img5 {
+    opacity: 0;
+    transition: 300ms ease;
+}
+
+.img5:hover {
+    opacity: 1; 
