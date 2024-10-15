@@ -51,12 +51,6 @@
 }
 
 
-input[type="submit"] {
-    padding: 10px 20px; 
-    font-size: 18px; 
-    cursor: help; 
-}
-
 
 .img1, .img2, .img3, .img4, .img5 {
     opacity: 0;
