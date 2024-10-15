@@ -17,7 +17,7 @@
 }
 
 .paragraph1 p, .paragraph2 p, .paragraph3 p {
-    color: white;
+    color: transparent;
     font-family: 'Times New Roman', Times, serif;
     transition: 300ms ease;
     font-size: 1.5em; 
