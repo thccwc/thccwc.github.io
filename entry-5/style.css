@@ -38,8 +38,8 @@
     font-size: 20px; 
     text-shadow: 2px 4px 10px white;
     top: 30px; 
-    left: 5%; /* Center the form */
-    width: 90%; /* Make it responsive */
+    left: 5%; 
+    width: 90%; 
     overflow: hidden;
 }
 
