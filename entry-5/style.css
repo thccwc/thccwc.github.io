@@ -1,0 +1,75 @@
+.paragraph1, .paragraph2, .paragraph3 {
+    width: 90%; 
+    position: absolute;
+    left: 5%; 
+}
+
+.paragraph1 {
+    bottom: 20px;
+}
+
+.paragraph2 {
+    bottom: 200px;
+}
+
+.paragraph3 {
+    bottom: 400px;
+}
+
+.paragraph1 p, .paragraph2 p, .paragraph3 p {
+    color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+    transition: 300ms ease;
+    font-size: 1.5em; 
+}
+
+.paragraph1:hover p,
+.paragraph2:hover p,
+.paragraph3:hover p {
+    color: white;
+    text-shadow: 2px 4px 10px white;
+}
+
+.form1 {
+    display: inline-block;
+    position: absolute;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px; 
+    text-shadow: 2px 4px 10px white;
+    top: 30px; 
+    left: 5%; /* Center the form */
+    width: 90%; /* Make it responsive */
+    overflow: hidden;
+}
+
+.form2 {
+    font-size: 20px; 
+}
+
+.img1, .img2, .img3, .img4, .img5 {
+    opacity: 0;
+    transition: 300ms ease;
+}
+
+.img1:hover,
+.img2:hover,
+.img3:hover,
+.img4:hover,
+.img5:hover {
+    opacity: 1; 
+}
+
+@media (max-width: 768px) {
+    .paragraph1 p, .paragraph2 p, .paragraph3 p {
+        font-size: 1.2em; 
+    }
+
+    .form1 {
+        font-size: 18px; 
+    }
+
+    .form2 {
+        font-size: 18px; 
+    }
+}
