@@ -1,0 +1,62 @@
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.entry1, .entry2, .entry3, .entry4, .entry5 {
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.entry1:hover,
+.entry2:hover,
+.entry3:hover,
+.entry4:hover,
+.entry5:hover {
+    opacity: 1; 
+}
+
+.description {
+    opacity: 0; 
+    position: absolute;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    white-space: nowrap; 
+    transition: opacity 300ms ease; 
+}
+
+a:hover .description {
+    opacity: 1; 
+}
+
+.description1 {
+    bottom: 20px;
+    left: 400px; 
+}
+
+.description2 {
+    top: 100px;
+    right: 230px; 
+}
+
+.description3 {
+    top: 500px;
+    left: 670px; 
+}
+
+.description4 {
+    top: 400px;
+    left: 300px; 
+}
+
+.description5 {
+    bottom: 100px;
+    right: 300px; 
+}

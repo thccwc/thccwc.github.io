@@ -1,18 +1,45 @@
-document.querySelector(".form2").addEventListener("submit", function(e) {
-    e.preventDefault();
+function startDrag(e) {
+    // determine event object
+    if (!e) {
+        var e = window.event;
+    }
+
+    // IE uses srcElement, others use target
+    var targ = e.target ? e.target : e.srcElement;
+
+    if (targ.className != 'dragme') {return};
+    // calculate event X, Y coordinates
+        offsetX = e.clientX;
+        offsetY = e.clientY;
+
+    // assign default values for top and left properties
+    if(!targ.style.left) { targ.style.left='0px'};
+    if (!targ.style.top) { targ.style.top='0px'};
+
+    // calculate integer values for top and left 
+    // properties
+    coordX = parseInt(targ.style.left);
+    coordY = parseInt(targ.style.top);
+    drag = true;
+
+    // move div element
+        document.onmousemove=dragDiv;
     
-    var fullWidth = window.innerWidth;
-    var fullHeight = window.innerHeight;
-    
-    var items = ['nothing', 'the end', 'last night', 'this man'];
-    var item = items[Math.floor(Math.random() * items.length)];
-    
-    var elem = document.createElement("div");
-    elem.textContent = item;
-    elem.style.position = "absolute";
-    elem.style.left = Math.round(Math.random() * (fullWidth - 100)) + "px"; 
-    elem.style.top = Math.round(Math.random() * (fullHeight - 30)) + "px"; 
-    elem.style.color = "white"; 
-    elem.style.fontSize = "1em"; 
-    document.body.appendChild(elem);
-});
+}
+function dragDiv(e) {
+    if (!drag) {return};
+    if (!e) { var e= window.event};
+    var targ=e.target?e.target:e.srcElement;
+    // move div element
+    targ.style.left=coordX+e.clientX-offsetX+'px';
+    targ.style.top=coordY+e.clientY-offsetY+'px';
+    return false;
+}
+function stopDrag() {
+    drag=false;
+}
+window.onload = function() {
+    document.onmousedown = startDrag;
+    document.onmouseup = stopDrag;
+}
+
