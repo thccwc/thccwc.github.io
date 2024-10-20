@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: cover;
-    background-position: center; 
+    background-position: relative; 
     margin: 0; 
     font-family: 'Times New Roman', Times, serif; 
 }
