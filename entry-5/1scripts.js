@@ -1,3 +1,23 @@
+const imgArray = [
+    'IMG_4751.PNG',
+    'IMG_4752.PNG',
+    'IMG_4753.PNG',
+    'IMG_4754.PNG',
+    'IMG_4755.PNG',
+    'IMG_4756.PNG'
+];
+
+function displayRandomImage() {
+    // Generate a random index
+    const randomIndex = Math.floor(Math.random() * imgArray.length);
+    // Select the image at the random index
+    const selectedImage = imgArray[randomIndex];
+    // Display the image
+    document.getElementsByClassName("img1")[0].src = 'images/' + selectedImage;
+}
+
+// Call the function when the window loads
+window.onload = displayRandomImage;
 function drag(elementToDrag, event)
 {
     // The mouse position (in window coordinates)
