@@ -1,23 +1,9 @@
-
-h1 {
-    color: white;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 50px;
-        text-shadow: 2px 4px 10px white;
-        text-align: center;
-        
-
-}
-
 body {
-
-        color: white;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 20px;
-        text-shadow: 2px 4px 10px white;
-        
-    }
-
-    a {
-        color: white;
-      }
+    background-image: url("IMG_4787.PNG");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: relative; 
+    margin: 0; 
+    font-family: 'Times New Roman', Times, serif; 
+}

@@ -1,12 +1,27 @@
+body {
+    background-image: url("IMG_4766.PNG");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: center; 
+    margin: 0; 
+    font-family: 'Times New Roman', Times, serif; 
+}
+
 .dragme{
     position:relative;
-    width: 250px;
-    height: auto;
+    width: 350px;
+    height: 300px;
     cursor: move;
 }
+
+.image-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 #draggable {
-    background-color: #ccc;
+    background-color: #ffffff;
     border: 1px solid #000;
-    width: 200px;
+    width: 1500px;
     height:auto;
 }
