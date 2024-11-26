@@ -1,16 +1,13 @@
-document.querySelector("form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    var fullWidth = window.innerWidth;
-    var fullHeight = window.innerHeight;
-    
-    var items = ['nothing', 'the end', 'last night', 'this man']
-    var item = items[Math.floor(Math.random()*items.length)];
-    
-    var elem = document.createElement("div");
-    elem.textContent = item;
-    elem.style.position = "absolute";
-    elem.style.left = Math.round(Math.random() * fullWidth) + "px";
-    elem.style.top = Math.round(Math.random() * fullHeight) + "px";
-    document.body.appendChild(elem);
-});
+let answer = document.getElementById("thisman");
+function changeBG() {
+    let input = answer.value.trim().toLowerCase();
+console.log(input);
+if (input === 'yes') {
+    document.body.style.backgroundImage = "url('bg2.PNG')";
+ } else if (input === 'no') {
+    document.body.style.backgroundImage = "url('bg3.PNG')";
+ } else { 
+    document.body.style.backgroundImage = "url('https://gifdb.com/images/high/dancing-cat-and-duck-rvt38b0q43fl8kcl.gif')";
+ }
+}
+let image = document.getElementById('myImage');

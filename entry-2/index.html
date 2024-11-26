@@ -13,8 +13,17 @@
         <link rel="stylesheet" href="style.css">
 
     </head>
+    <style> 
+        html {
+           cursor : url(smallbunny.PNG), auto;
+    
+        }
+        </style>
     <body>
-        <div href="#" class="img bg"></div>
+        <body onload="randombg()">
+            <div id="random" ></div>  
+        </body>
+        <button onclick="randombg()">where do you want to go?</button>
         <script src="scripts.js" async defer></script>
     </body>
 </html>

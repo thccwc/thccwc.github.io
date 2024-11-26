@@ -11,72 +11,36 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
-        <style>
-body {
-    background-image: url("IMG_4658 copy.JPG");
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    background-size: cover;
-    background-position: relative;
-}
-        </style>
     </head>
+    <style> 
+      html {
+         cursor : url(smallbunny.PNG), auto;
+      }
+      </style>
     <body> 
+      <div class="header">
+      </div>      
         
-          <p>same dream, same night, same mind</p> 
-        
-          <div class="img1" style="position: relative;"> 
-            <img src="img1.jpg" width="350" height=auto style="position: absolute; left: 60px; top: 120px;>
-          </div>
-          <div class="img2" style="position: relative;"> 
-            <img src="img2.jpg" width="300" height=auto style="position: absolute; left: 1100px; top: 10px;>
-          </div>
-          <div class="img3" style="position: relative;"> 
-            <img src="img3.jpg" width="150" height=auto style="position: absolute; left: 380px; top: 80px;>
-          </div>
-          <div class="img4" style="position: relative;"> 
-            <img src="img4.jpg" width="350" height=auto style="position: absolute; left: 580px; top: 190px;>
-          </div>
-          <div class="img5" style="position: relative;"> 
-            <img src="img5.jpg" width="250" height=auto style="position: absolute; left: 1000px; top: 400px;>
-          </div>
-          <div class="img9" style="position: relative;"> 
-            <img src="img9.jpg" width="150" height=auto style="position: absolute; left: 500px; top: 430px;>
-          </div>
-          <div class="img7" style="position: relative;"> 
-            <img src="img7.jpg" width="150" height=auto style="position: absolute; left: 0px; top: 40px;>
-          </div>
-          <div class="img3" style="position: relative;"> 
-            <img src="img3.jpg" width="100" height=auto style="position: absolute; left: 920px; top: 650px;>
-          </div>
-          <div class="img3" style="position: relative;"> 
-            <img src="img3.jpg" width="50" height=auto style="position: absolute; left: 980px; top: 250px;>
-          </div>
-          <div class="img3" style="position: relative;"> 
-            <img src="img3.jpg" width="50" height=auto style="position: absolute; left: 980px; top: 175px;>
-          </div>
-          <div class="img3" style="position: relative;"> 
-            <img src="img3.jpg" width="50" height=auto style="position: absolute; left: 980px; top: 100px;>
-          </div>
-          <div class="img8" style="position: relative;"> 
-            <img src="img8.jpg" width="100" height=auto style="position: absolute; left: 650px; top: 2px;>
-          </div>
+<img id="1" src="1.PNG" style="background-color: transparent; width: 310px; height: auto; position: absolute; right: 380px; bottom: 0px;" alt="Image 1">
+<img id="2" src="2.PNG" style="background-color: transparent; width: 200px; height: auto; position: absolute; right: 0px; bottom: 300px;" alt="Image 2">
+<img id="3" src="3.PNG" style="background-color: transparent; width: 500px; height: auto; position: absolute; right: 120px; bottom: 150px;" alt="Image 3">
+<img id="4" src="4.PNG" style="background-color: transparent; width: 450px; height: auto; position: absolute; left: 250px; top: 150px;" alt="Image 4">
+<img id="5" src="5.PNG" style="background-color: transparent; width: 600px; height: auto; position: absolute; left: 0px; bottom: 0px;" alt="Image 5">
+  <img class="webname" src="name.PNG" alt="Web Name">
+
 
      
-        <form class="form2" style="position:absolute;">
-  <input type="submit">
-        </form>
-       
-        
-        <form class="form1" style="position: relative;"> 
-  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-  <label for="vehicle1"> have you seen an angel?</label><br>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-  <label for="vehicle2"> have you seen this man?</label><br>
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-  <label for="vehicle3"> have you accepted the end?</label>
-        </form>
-        </div>
+      <img id="poster" src="poster.JPG" style="background-color: transparent; width: 100px; height: auto; position: absolute; right: 50%; bottom: 50%;">
+      
+          <div id="container">
+            <p>have you seen this man?</p>
+            
+            
+            <input type="text" id="thisman" placeholder="yes/no">;
+            <input type="button" id="submit-btn" value="Submit" onclick="changeBG()">;
+              
+              
+            </div>
         
 
         <script src="myscripts.js" async defer></script>
