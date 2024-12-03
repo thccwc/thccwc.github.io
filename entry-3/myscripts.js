@@ -11,3 +11,4 @@ if (input === 'yes') {
  }
 }
 let image = document.getElementById('myImage');
+

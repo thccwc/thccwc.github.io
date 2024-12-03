@@ -1,0 +1,33 @@
+body {
+    background-image: url("bgg.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: relative; 
+    margin: 0; 
+    font-family: 'Times New Roman', Times, serif; 
+}
+.grid-container-element { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-gap: 20px; /* Space between grid items */
+    width: 100%; 
+} 
+.grid-child-element { 
+    margin: 10px; /* Space around individual items */
+    overflow-y: scroll; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Hides horizontal scrolling */
+    max-height: 800px; /* Set a maximum height for the scrollable area */
+    padding: 10px; /* Add padding inside each child element */
+}
+p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5em;
+        color: white;
+        text-shadow: 2px 4px 10px white;
+        padding: 30px;
+    }  
+    .grid-child-element img {
+        padding: 100px; /* Adds padding inside the images */
+    
+    }

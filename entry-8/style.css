@@ -1,0 +1,60 @@
+body {
+    
+        background-image: url("1.PNG");
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: cover;
+        background-position: relative; 
+        margin: 0; 
+        font-family: 'Times New Roman', Times, serif; 
+    }
+
+
+#door-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2; /* Ensures the door is in front of images */
+}
+
+#door-left, #door-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25%; /* Adjust as needed */
+    height: auto;
+
+}
+
+#door-left {
+    left: 38%; /* Start at the center */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    animation: slideLeft 2s forwards; /* Slide left animation */
+}
+
+#door-right {
+    right: 38%; /* Start at the center */
+    transform: translate(50%, -50%); /* Center horizontally and vertically */
+    animation: slideRight 2s forwards; /* Slide right animation */
+}
+
+@keyframes slideLeft {
+    from {
+        left: 38%; /* Start at the center */
+    }
+    to {
+        left: 0; /* Slide to the left */
+    }
+}
+
+@keyframes slideRight {
+    from {
+        right: 36%; /* Start at the center */
+    }
+    to {
+        right: 0; /* Slide to the right */
+    }
+}
+

@@ -35,15 +35,15 @@ body {
         position: relative; 
         z-index: 5;         
         margin: 0 auto;     
-        height: auto;       
-        padding: 20px;    
+        height: auto;           
         overflow: hidden;   
+        right: 170px;
     }
 
 
 .popup1-gifs {
         position: absolute; 
-        left: 530px;
+        left: 540px;
         bottom: 70px;     
         z-index: 10;       
         width: 30%;         
@@ -72,7 +72,7 @@ body {
     display: flex;
     flex-wrap: wrap;    
     justify-content: flex-start;
-    gap: 20px;
+    gap: 10px;
     margin-left: 20px;
     width: auto;        
     height: auto;
