@@ -24,7 +24,7 @@ const scene = new THREE.Scene();
 // ✅ Use a known-working equirectangular image from Three.js
 const loader = new THREE.TextureLoader();
 loader.load(
-  'https://threejs.org/examples/textures/2294472375_24a3b8ef46_o.jpg',
+  '360.png',
   (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     texture.colorSpace = THREE.SRGBColorSpace;
