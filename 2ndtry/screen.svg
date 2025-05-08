@@ -1,7 +1,7 @@
 <svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="Desktop - 2">
 <rect id="monitor" x="250" y="136" width="944" height="726" fill="url(#pattern0_5_23)"/>
-<g id="monitor screen">
+<g id="monitorscreen">
 <rect x="472" y="319" width="328" height="259" fill="url(#pattern1_5_23)"/>
 <rect x="472" y="319" width="328" height="259" fill="black" fill-opacity="0.6"/>
 </g>
@@ -12,7 +12,7 @@
 <rect id="lamp" x="514" y="361" width="67" height="76" fill="url(#pattern6_5_23)"/>
 <rect id="chair" x="489" y="467" width="92" height="90" fill="url(#pattern7_5_23)"/>
 <rect id="flower" x="466" y="457" width="76" height="116" fill="url(#pattern8_5_23)"/>
-<rect id="oni mask" x="685" y="498" width="75" height="75" fill="url(#pattern9_5_23)"/>
+<rect id="onimask" x="685" y="498" width="75" height="75" fill="url(#pattern9_5_23)"/>
 <rect id="diary" x="597" y="331" width="89" height="89" fill="url(#pattern10_5_23)"/>
 <rect id="angel" x="1045" y="524" width="298" height="298" fill="url(#pattern11_5_23)"/>
 </g>
