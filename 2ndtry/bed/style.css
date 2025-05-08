@@ -1,9 +1,23 @@
-html, body {
-    height: 100%;
-    margin: 0;
-  }
-  #c {
+#random{
+    /* BOX MODEL */
     width: 100%;
-    height: 100%;
-    display: block;
+    height: 700px;
+    border: 1px solid black;
+    padding:20px;
+    
+    /* ENHANCEMENT */
+    background-image: url('bg.PNG');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;  
   }
+
+  body {
+    background-image: url("bg.PNG");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: relative; 
+    margin: 0; 
+    font-family: 'Times New Roman', Times, serif; 
+}

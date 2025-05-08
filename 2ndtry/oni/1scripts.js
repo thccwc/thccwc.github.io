@@ -1,0 +1,132 @@
+const imgArray = [
+    'IMG_4751.PNG',
+    'IMG_4752.PNG',
+    'IMG_4753.PNG',
+    'IMG_4754.PNG',
+    'IMG_4755.PNG',
+    'IMG_4756.PNG'
+];
+
+function displayRandomImage() {
+    // Generate a random index
+    const randomIndex = Math.floor(Math.random() * imgArray.length);
+    // Select the image at the random index
+    const selectedImage = imgArray[randomIndex];
+    // Display the image
+    document.getElementsByClassName("img1")[0].src = 'images/' + selectedImage;
+}
+
+// Call the function when the window loads
+window.onload = displayRandomImage;
+function drag(elementToDrag, event)
+{
+    // The mouse position (in window coordinates)
+    // at which the drag begins
+    var startX = event.clientX, startY = event.clientY;
+
+    // The original position (in document coordinates) of the
+    // element that is going to be dragged. Since elementToDrag is
+    // absolutely positioned, we assume that its offsetParent is the
+    //document bodt.
+    var origX = elementToDrag.offsetLeft, origY = elementToDrag.offsetTop;
+
+    // Even though the coordinates are computed in different
+    // coordinate systems, we can still compute the difference between them
+    // and use it in the moveHandler() function. This works because
+    // the scrollbar positoin never changes during the drag.
+    var deltaX = startX - origX, deltaY = startY - origY;
+
+    // Register the event handlers that will respond to the mousemove events
+    // and the mouseup event that follow this mousedown event.
+    if (document.addEventListener) //DOM Level 2 event model
+    {
+        // Register capturing event handlers
+        document.addEventListener("mousemove", moveHandler, true);
+        document.addEventListener("mouseup", upHandler, true);
+    }
+    else if (document.attachEvent) //IE 5+ Event Model
+    {
+        //In the IE event model, we capture events by calling
+        //setCapture() on the element to capture them.
+        elementToDrag.setCapture();
+        elementToDrag.attachEvent("onmousemove", moveHandler);
+        elementToDrag.attachEvent("onmouseup", upHandler);
+        // Treat loss of mouse capture as a mouseup event.
+        elementToDrag.attachEvent("onclosecapture", upHandler);
+    }
+    else //IE 4 Event Model
+    {
+        // In IE 4, we can't use attachEvent() or setCapture(), so we set
+        // event handlers directly on the document object and hope that the
+        // mouse event we need will bubble up.
+        var oldmovehandler = document.onmousemove; //used by upHandler()
+        var olduphandler = document.onmouseup;
+        document.onmousemove = moveHandler;
+        document.onmouseup = upHandler;
+    }
+
+    // We've handled this event. Don't let anybody else see it.
+    if (event.stopPropagation) event.stopPropagation();    //  DOM Level 2
+    else event.cancelBubble = true;                        //  IE
+
+    // Now prevent any default action.
+    if (event.preventDefault) event.preventDefault();      //  DOM Level 2
+    else event.returnValue = false;                        //  IE
+
+    /**
+     * This is the handler that captures mousemove events when an element
+     * is being dragged. It is responsible for moving the element.
+     **/
+    function moveHandler(e)
+    {
+        if (!e) e = window.event; //  IE Event Model
+
+        // Move the element to the current mouse position, adjusted as
+        // necessary by the offset of the initial mouse-click.
+        elementToDrag.style.position = 'absolute'; // ADDED TRICKERY: keep positioning relative until it's time to move the element
+        elementToDrag.style.left = (e.clientX - deltaX) + "px";
+        elementToDrag.style.top = (e.clientY - deltaY) + "px";
+
+        // And don't let anyone else see this event.
+        if (e.stopPropagation) e.stopPropagation();       // DOM Level 2
+        else e.cancelBubble = true;                       // IE
+    }
+
+    /**
+     * This is the handler that captures the final mouseup event that
+     * occurs at the end of a drag.
+     **/
+    function upHandler(e)
+    {
+        if (!e) e = window.event;    //IE Event Model
+
+        // Unregister the capturing event handlers.
+        if (document.removeEventListener) // DOM event model
+        {
+            document.removeEventListener("mouseup", upHandler, true);
+            document.removeEventListener("mousemove", moveHandler, true);
+        }
+        else if (document.detachEvent)  //  IE 5+ Event Model
+        {
+            elementToDrag.detachEvent("onlosecapture", upHandler);
+            elementToDrag.detachEvent("onmouseup", upHandler);
+            elementToDrag.detachEvent("onmousemove", moveHandler);
+            elementToDrag.releaseCapture();
+        }
+        else    //IE 4 Event Model
+        {
+            //Restore the original handlers, if any
+            document.onmouseup = olduphandler;
+            document.onmousemove = oldmovehandler;
+        }
+
+        //  And don't let the event propagate any further.
+        if (e.stopPropagation) e.stopPropagation(); //DOM Level 2
+        else e.cancelBubble = true;                 //IE
+    }
+}
+
+/* bind drag handler (above) to any element with the dragme class */
+window.onload = () => {
+    Array.from(document.getElementsByClassName('dragme')).forEach((e) => e.setAttribute('onmousedown', 'drag(this, event);'));
+}
