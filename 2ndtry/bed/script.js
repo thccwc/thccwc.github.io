@@ -7,7 +7,7 @@ function main() {
 	const renderer = new THREE.WebGLRenderer( { antialias: true, canvas } );
 
 	const fov = 75;
-	const aspect = 2; // the canvas default
+	const aspect = window.innerWidth / window.innerHeight;
 	const near = 0.1;
 	const far = 100;
 	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
@@ -28,20 +28,28 @@ function main() {
 		scene.add( light );
 
 	}
+    scene.background = new THREE.Color(0x000000); // or any default color
 
 
 	{
 
 		const loader = new THREE.TextureLoader();
-		const texture = loader.load(
-			'360.png',
-			() => {
+loader.load(
+  '360.png',
+  (texture) => {
+    texture.mapping = THREE.EquirectangularReflectionMapping;
+    texture.colorSpace = THREE.SRGBColorSpace;
+    scene.background = texture;
 
-				texture.mapping = THREE.EquirectangularReflectionMapping;
-				texture.colorSpace = THREE.SRGBColorSpace;
-				scene.background = texture;
+    // ✅ Start rendering only after background is loaded
+    requestAnimationFrame(render);
+  },
+  undefined,
+  (err) => {
+    console.error('Failed to load texture:', err);
+  }
+);
 
-			} );
 
 	}
 
@@ -67,9 +75,10 @@ function main() {
 
 		if ( resizeRendererToDisplaySize( renderer ) ) {
 
-			const canvas = renderer.domElement;
-			camera.aspect = canvas.clientWidth / canvas.clientHeight;
-			camera.updateProjectionMatrix();
+			renderer.setSize(width, height, false);
+camera.aspect = width / height;
+camera.updateProjectionMatrix();
+
 
 		}
 
