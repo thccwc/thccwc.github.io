@@ -1,95 +1,49 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 function main() {
+  const canvas = document.querySelector('#c');
+  const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-	const canvas = document.querySelector( '#c' );
-	const renderer = new THREE.WebGLRenderer( { antialias: true, canvas } );
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 5;
 
-	const fov = 75;
-	const aspect = window.innerWidth / window.innerHeight;
-	const near = 0.1;
-	const far = 100;
-	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
-	camera.position.z = 3;
+  const controls = new OrbitControls(camera, canvas);
+  controls.update();
 
-	const controls = new OrbitControls( camera, canvas );
-	controls.target.set( 0, 0, 0 );
-	controls.update();
+  const scene = new THREE.Scene();
 
-	const scene = new THREE.Scene();
+  const light = new THREE.DirectionalLight(0xffffff, 3);
+  light.position.set(-1, 2, 4);
+  scene.add(light);
 
-	{
+  let demon;
+  const loader = new GLTFLoader();
+  loader.load(
+    'backrooms_entity_38_needlelimbs.glb',
+    (gltf) => {
+      demon = gltf.scene;
+      demon.scale.set(1, 1, 1);
+      scene.add(demon);
+    },
+    undefined,
+    (err) => console.error('Failed to load model:', err)
+  );
 
-		const color = 0xFFFFFF;
-		const intensity = 3;
-		const light = new THREE.DirectionalLight( color, intensity );
-		light.position.set( - 1, 2, 4 );
-		scene.add( light );
+  function animate(time) {
+    time *= 0.001;
 
-	}
-    scene.background = new THREE.Color(0x000000); // or any default color
+    if (demon) {
+      demon.rotation.y = time * 0.5;
+    }
 
-
-	{
-
-		const loader = new THREE.TextureLoader();
-loader.load(
-  '360.png',
-  (texture) => {
-    texture.mapping = THREE.EquirectangularReflectionMapping;
-    texture.colorSpace = THREE.SRGBColorSpace;
-    scene.background = texture;
-
-    // ✅ Start rendering only after background is loaded
-    requestAnimationFrame(render);
-  },
-  undefined,
-  (err) => {
-    console.error('Failed to load texture:', err);
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
   }
-);
 
-
-	}
-
-	function resizeRendererToDisplaySize( renderer ) {
-
-		const canvas = renderer.domElement;
-		const width = canvas.clientWidth;
-		const height = canvas.clientHeight;
-		const needResize = canvas.width !== width || canvas.height !== height;
-		if ( needResize ) {
-
-			renderer.setSize( width, height, false );
-
-		}
-
-		return needResize;
-
-	}
-
-	function render( time ) {
-
-		time *= 0.001;
-
-		if ( resizeRendererToDisplaySize( renderer ) ) {
-
-			renderer.setSize(width, height, false);
-camera.aspect = width / height;
-camera.updateProjectionMatrix();
-
-
-		}
-
-		renderer.render( scene, camera );
-
-		requestAnimationFrame( render );
-
-	}
-
-	requestAnimationFrame( render );
-
+  animate();
 }
 
 main();
