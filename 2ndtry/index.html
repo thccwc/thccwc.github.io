@@ -20,6 +20,8 @@
 </head>
 <body>
     <div id="computer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script>
         function loadSVG() {
             fetch("screen.svg")
@@ -30,8 +32,7 @@
                     if (svgEl) {
                         svgEl.setAttribute("preserveAspectRatio", "xMidYMid slice");
                     }
-                    // Optional animation setup
-                    // setAnimationScroll();
+                    setAnimationScroll();
                 })
                 .catch(error => {
                     console.error("Error loading SVG:", error);
@@ -39,6 +40,29 @@
         }
 
         loadSVG();
+        function setAnimationScroll () {
+            gsap.registerPlugin(ScrollTrigger);
+            ScrollTrigger:{
+                trigger: "#computer";
+                start: "top top";
+                end: "+=1000";
+                scrub: true;
+                pin: true;
+            }
+            let runAnimation = gsap.timeline();
+
+            runAnimation.add([  
+            gsap.to('#computer svg', 2, {
+                scale:1.5
+            }),
+        ])
+            .add([
+            gsap.to('#painting', 2, {
+                scale:3,
+                y:-400,
+            })
+            ])
+        }
     </script>
 </body>
 </html>
