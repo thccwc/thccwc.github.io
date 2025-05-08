@@ -1,44 +1,83 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-const canvas = document.querySelector('#c');
-const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
-renderer.setSize(window.innerWidth, window.innerHeight);
+function main() {
+	const canvas = document.querySelector('#c');
+	const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
 
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  100
-);
-camera.position.z = 0.01;
+	const fov = 75;
+	const aspect = 2;
+	const near = 0.1;
+	const far = 100;
+	const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+	camera.position.z = 3;
 
-const controls = new OrbitControls(camera, canvas);
-controls.enableZoom = false;
-controls.enablePan = false;
-controls.autoRotate = true;
-controls.autoRotateSpeed = 0.5;
+	const controls = new OrbitControls(camera, canvas);
+	controls.target.set(0, 0, 0);
+	controls.update();
 
-const scene = new THREE.Scene();
+	const scene = new THREE.Scene();
 
-// ✅ Use a known-working equirectangular image from Three.js
-const loader = new THREE.TextureLoader();
-loader.load(
-  'https://threejs.org/examples/textures/2294472375_24a3b8ef46_o.jpg',
-  (texture) => {
-    texture.mapping = THREE.EquirectangularReflectionMapping;
-    texture.colorSpace = THREE.SRGBColorSpace;
-    scene.background = texture;
-    animate(); // only start after texture loads
-  },
-  undefined,
-  (err) => {
-    console.error('Texture load failed', err);
-  }
-);
+	// Light
+	{
+		const color = 0xFFFFFF;
+		const intensity = 3;
+		const light = new THREE.DirectionalLight(color, intensity);
+		light.position.set(-1, 2, 4);
+		scene.add(light);
+	}
 
-function animate() {
-  controls.update();
-  renderer.render(scene, camera);
-  requestAnimationFrame(animate);
+	// Background
+	{
+		const loader = new THREE.TextureLoader();
+		const texture = loader.load('360.png', () => {
+			texture.mapping = THREE.EquirectangularReflectionMapping;
+			texture.colorSpace = THREE.SRGBColorSpace;
+			scene.background = texture;
+		});
+	}
+
+	// Load Demon Model
+	let demon;
+	{
+		const loader = new GLTFLoader();
+		loader.load('backrooms_entity_38_needlelimbs.glb', (gltf) => {
+			demon = gltf.scene;
+			demon.scale.set(1, 1, 1); // Adjust as needed
+			scene.add(demon);
+		});
+	}
+
+	function resizeRendererToDisplaySize(renderer) {
+		const canvas = renderer.domElement;
+		const width = canvas.clientWidth;
+		const height = canvas.clientHeight;
+		const needResize = canvas.width !== width || canvas.height !== height;
+		if (needResize) {
+			renderer.setSize(width, height, false);
+		}
+		return needResize;
+	}
+
+	function render(time) {
+		time *= 0.001;
+
+		if (resizeRendererToDisplaySize(renderer)) {
+			const canvas = renderer.domElement;
+			camera.aspect = canvas.clientWidth / canvas.clientHeight;
+			camera.updateProjectionMatrix();
+		}
+
+		if (demon) {
+			demon.rotation.y = time * 0.5; // Optional: spin the demon
+		}
+
+		renderer.render(scene, camera);
+		requestAnimationFrame(render);
+	}
+
+	requestAnimationFrame(render);
 }
+
+main();
