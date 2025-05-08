@@ -11,29 +11,29 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.z = 0.01; // Very close, since no geometry
+camera.position.z = 0.01;
 
 const controls = new OrbitControls(camera, canvas);
 controls.enableZoom = false;
 controls.enablePan = false;
 controls.autoRotate = true;
-controls.autoRotateSpeed = 0.2;
+controls.autoRotateSpeed = 0.5;
 
 const scene = new THREE.Scene();
 
-// Load 360 background
+// ✅ Use a known-working equirectangular image from Three.js
 const loader = new THREE.TextureLoader();
 loader.load(
-  '360.png',
+  'https://threejs.org/examples/textures/2294472375_24a3b8ef46_o.jpg',
   (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     texture.colorSpace = THREE.SRGBColorSpace;
     scene.background = texture;
-    animate();
+    animate(); // only start after texture loads
   },
   undefined,
   (err) => {
-    console.error('Error loading background:', err);
+    console.error('Texture load failed', err);
   }
 );
 
