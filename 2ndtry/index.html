@@ -33,6 +33,15 @@
                     if (svgEl) {
                         svgEl.setAttribute("preserveAspectRatio", "xMidYMid slice");
                     }
+                    const bedEl = document.querySelector("#bed");
+            if (bedEl) {
+                bedEl.style.cursor = "pointer"; // Optional: show pointer cursor
+                bedEl.addEventListener("click", () => {
+                    window.location.href = "entry-2/index.html";
+                });
+            } else {
+                console.warn("Element with ID 'bed' not found in SVG.");
+            }
                     setAnimationScroll();
                 })
                 .catch(error => {
@@ -102,9 +111,6 @@
                 y:20,
             }),
             ])
-            document.querySelector("#bed").addEventListener("click", () => {
-    window.location.href = "entry-2/index.html";
-});
         }
     </script>
 </body>
