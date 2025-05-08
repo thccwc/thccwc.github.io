@@ -80,4 +80,23 @@ function main() {
 	requestAnimationFrame(render);
 }
 
+const warningDiv = document.createElement('div');
+warningDiv.textContent = 'Leave now while you can';
+warningDiv.style.position = 'absolute';
+warningDiv.style.top = '20px';
+warningDiv.style.left = '50%';
+warningDiv.style.transform = 'translateX(-50%)';
+warningDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+warningDiv.style.color = 'white';
+warningDiv.style.padding = '1em 2em';
+warningDiv.style.borderRadius = '8px';
+warningDiv.style.fontSize = '1.2em';
+warningDiv.style.zIndex = '1000';
+document.body.appendChild(warningDiv);
+
+setInterval(() => {
+  warningDiv.textContent = 'Leave now while you can';
+}, 1500);
+
+
 main();
