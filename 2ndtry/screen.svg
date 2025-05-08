@@ -14,8 +14,12 @@
 <rect id="lamp" x="514" y="361" width="67" height="63" fill="url(#pattern6_5_23)"/>
 <rect id="chair" x="489" y="467" width="92" height="90" fill="url(#pattern7_5_23)"/>
 <rect id="flower" x="466" y="457" width="76" height="116" fill="url(#pattern8_5_23)"/>
+<a href="oni/index.html">
 <rect id="onimask" x="685" y="498" width="75" height="75" fill="url(#pattern9_5_23)"/>
+</a>
+<a href="diary/index.html">
 <rect id="diary" x="597" y="331" width="89" height="89" fill="url(#pattern10_5_23)"/>
+</a>
 <rect id="angel" x="1045" y="524" width="298" height="298" fill="url(#pattern11_5_23)"/>
 </g>
 <defs>
