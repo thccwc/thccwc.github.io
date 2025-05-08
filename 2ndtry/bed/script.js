@@ -31,7 +31,7 @@ function main() {
 	// Background
 	{
 		const loader = new THREE.TextureLoader();
-		const texture = loader.load('Field.PNG', () => {
+		const texture = loader.load('360.PNG', () => {
 			texture.mapping = THREE.EquirectangularReflectionMapping;
 			texture.colorSpace = THREE.SRGBColorSpace;
 			scene.background = texture;
