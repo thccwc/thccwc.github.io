@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SVG Loader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #computer {
+            width: 100%;
+            height: 100%;
+        }
+
+        #computer svg {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="computer"></div>
+    <script>
+        function loadSVG() {
+            fetch("screen.svg")
+                .then(response => response.text())
+                .then(svg => {
+                    document.getElementById('computer').innerHTML = svg;
+                    const svgEl = document.querySelector('#computer svg');
+                    if (svgEl) {
+                        svgEl.setAttribute("preserveAspectRatio", "xMidYMid slice");
+                    }
+                    // Optional animation setup
+                    // setAnimationScroll();
+                })
+                .catch(error => {
+                    console.error("Error loading SVG:", error);
+                });
+        }
+
+        loadSVG();
+    </script>
+</body>
+</html>
